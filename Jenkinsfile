@@ -3,6 +3,8 @@ pipeline {
   agent { label "master" }
     
     stages {
+      
+      
             stage("install") {
                 steps { bat 'npm install' }
             }
@@ -10,5 +12,11 @@ pipeline {
             stage("build") {
                 steps { bat 'npm run build' }
             }
+      
+             stage("artifacts") {
+                archiveArtifacts artificates : "dist"
+            }
+      
+         
     }
 }
